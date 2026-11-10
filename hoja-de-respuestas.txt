@@ -1,0 +1,43 @@
+Pregunta 1: 
+class Prestamo(Base):
+
+    __tablename__ = "prestamo"
+
+    id: Mapped[int] = mapped_column(primary_key=True, nullable=False)
+
+    equipo_id: Mapped[int] = mapped_column(
+        ForeignKey("equipo.id"),
+        nullable=False
+    )
+
+    estudiante_id: Mapped[int] = mapped_column(
+        ForeignKey("estudiante.id"),
+        nullable=False
+    )
+
+    fecha: Mapped[str] = mapped_column(String(100), nullable=False)
+    cantidad: Mapped[int] = mapped_column(nullable=False)
+
+    equipo: Mapped["Equipo"] = relationship(
+        back_populates="prestamos"
+    )
+
+    estudiante: Mapped["Estudiante"] = relationship(
+        back_populates="prestamos"
+    )
+
+    def __repr__(self):
+        return (
+            f"Prestamo(id={self.id}, equipo_id={self.equipo_id}, "
+            f"estudiante_id={self.estudiante_id}, "
+            f"fecha='{self.fecha}', cantidad={self.cantidad})"
+        )
+pregunta 2:
+pregunta 3:
+pregunta 4:
+pregunta 5:
+pregunta 6:
+
+
+
+
